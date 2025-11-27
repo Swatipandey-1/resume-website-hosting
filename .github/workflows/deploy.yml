@@ -3,7 +3,7 @@ name: Deploy Resume to S3
 on:
   push:
     branches:
-      - main
+      - main  # workflow triggers on pushes to main branch
 
 jobs:
   deploy:
@@ -18,15 +18,13 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1   
+        aws-region: us-east-1   # <-- replace with your S3 bucket region
 
     - name: Sync files to S3
       run: |
-        aws s3 sync . s3://resume-website-hosting-bucket --delete \
-          --exclude ".git/*" \
-          --exclude ".github/*"
+        aws s3 sync ./front-end/html s3://resume-website-hosting-bucket --delete
 
-    - name: Invalidate CloudFront Cache
+    - name: Invalidate CloudFront cache
       run: |
         aws cloudfront create-invalidation \
           --distribution-id E28R5JS0WWFVYX \
