@@ -34,7 +34,8 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       Cors:
-        AllowOrigin: "'https://resume.logan-toler.dev'"
+        AllowOrigin: "'https://d3fa4y53njrbqq.cloudfront.net'"  #initially commented when running first time
+        # AllowOrigin: "'*'" -----initially uncomment this and run file and then after cloudfront distribution creation add distribution id
       EndpointConfiguration: Regional
       OpenApiVersion: 3.0.1
       StageName: Prod
