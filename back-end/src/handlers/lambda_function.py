@@ -14,20 +14,21 @@ class DecimalEncoder(json.JSONEncoder):
 counter_table = boto3.resource('dynamodb').Table('countertable')
 
 def lambda_handler(event, context):
+    # Increment counter and get updated value in one step
     response = counter_table.update_item(
         Key={'siteviews': 'view_counter'},
         ExpressionAttributeValues={':inc': decimal.Decimal(1)},
-        UpdateExpression="ADD counter_value :inc"
-        
+        UpdateExpression="ADD counter_value :inc",
+        ReturnValues="UPDATED_NEW"
     )
     
-    item = counter_table.get_item(Key={'siteviews': 'view_counter'})
-    count_views = item['Item']['counter_value']
+    count_views = response['Attributes']['counter_value']
+    
     return {
         "statusCode": 200,
         "isBase64Encoded": False,
         "headers": {
-            "Access-Control-Allow-Origin": "https://resume.logan-toler.dev"
+            "Access-Control-Allow-Origin": "https://d3fa4y53njrbqq.cloudfront.net/"
         },
-        "body": json.dumps(item['Item']['counter_value'], indent=4, cls=DecimalEncoder)
+        "body": json.dumps({"siteviews": count_views}, indent=4, cls=DecimalEncoder)
     }
