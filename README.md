@@ -3,9 +3,8 @@
 This project demonstrates deploying a production-grade personal resume website using Amazon Web Services (AWS) and modern DevOps practices.
 The website is hosted on Amazon S3, delivered through CloudFront CDN, secured with HTTPS, and automatically deployed using GitHub Actions CI/CD pipeline on every code push.
 ________________________________________ 
-🏗 Architecture
- 
-________________________________________
+🏗 Architecture (check final_cloud_resume_Architecture.jpg)
+_______________________________________
 🧰 Tech Stack
 Category	Tools
 Frontend	HTML, CSS, JavaScript
