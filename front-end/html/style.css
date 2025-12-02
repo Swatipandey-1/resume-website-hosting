@@ -1,0 +1,142 @@
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --accent:#1d4ed8;
+  --accent-soft:#e0e7ff;
+  --text:#1e293b;
+  --muted:#64748b;
+  --radius:12px;
+  --shadow:0 6px 20px rgba(0,0,0,0.08);
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+}
+
+.layout{
+  display:flex;
+  gap:24px;
+  max-width:1100px;
+  margin:28px auto;
+  padding:0 16px;
+}
+
+.sidebar{
+  width:260px;
+  background:linear-gradient(135deg,var(--accent-soft),#fff);
+  padding:24px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  position:sticky;
+  top:24px;
+  height:fit-content;
+}
+
+.profile-pic{
+  width:140px;
+  height:140px;
+  border-radius:12px;
+  object-fit:cover;
+  display:block;
+  margin:auto;
+}
+
+.name{
+  text-align:center;
+  margin-top:12px;
+  color:var(--accent);
+  font-weight:600;
+}
+
+.contact-info{
+  font-size:14px;
+  margin-top:12px;
+  color:var(--muted);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.contact-info a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.socials{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+  justify-content:center;
+}
+
+.social-link{
+  background:#fff;
+  padding:8px 12px;
+  border-radius:8px;
+  color:var(--accent);
+  text-decoration:none;
+  font-size:14px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+
+.content{
+  flex:1;
+  background:var(--card);
+  padding:32px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+
+.section{
+  margin-bottom:28px;
+}
+
+.section-title{
+  font-size:20px;
+  color:var(--accent);
+  border-left:4px solid var(--accent);
+  padding-left:10px;
+  margin-bottom:12px;
+  font-weight:700;
+}
+
+.sub{
+  font-size:14px;
+  color:var(--muted);
+}
+
+.role{
+  font-weight:600;
+  margin-top:6px;
+}
+
+.project{
+  background:var(--accent-soft);
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+.skills span{
+  background:var(--accent-soft);
+  padding:8px 12px;
+  border-radius:8px;
+  margin:4px;
+  display:inline-block;
+  color:#1e3a8a;
+  font-weight:600;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .layout{
+    flex-direction:column;
+  }
+  .sidebar{
+    width:100%;
+    position:relative;
+    top:0;
+  }
+}
